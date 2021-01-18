@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+ 
+	
+<!-- header::Start -->
+	<head>
+		<!-- Use Internet Explorer 9 Standards mode for Eclipse Browser Control - https://www.eclipse.org/swt/faq.php#browsernativeie and https://msdn.microsoft.com/en-us/library/jj676915%28v=vs.85%29.aspx -->
+  		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+		
+		<!-- Next 2 http=equiv headers required to disable caching the Eclipse Browser Widget -->
+		<meta http-equiv="Pragma" content="no-cache">
+  		<meta http-equiv="Expires" content="-1">
+
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta name="copyright" content="Copyright IBM Corporation 2014" />
+		<meta name="abstract" content="IBM App Connect Enterprise V11 Tutorial">
+		<meta name="author" content="IBM">
+		<meta name="description" content="IBM App Connect Enterprise V11 Tutorial">
+		<meta name="keywords" content="keywords" > 
+		<meta name="robots" content="index,follow">
+		<meta name="source" content="IBM App Connect Enterprise V11 Tutorial" /> 
+		
+		<title>IBM App Connect Enterprise V11 Tutorial</title>
+
+    	<link rel="stylesheet" href="https://ot4i.github.io/iib-tutorials/css/main.css" />
+		<link rel="stylesheet" href="https://ot4i.github.io/iib-tutorials/css/app.css" />
+    	
+		<script src="https://ot4i.github.io/iib-tutorials/js/json2.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/js2java.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/js2java_steps.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/vendor/modernizr.js"></script>
+	</head>
+<!-- header::End -->
+<!-- body::Start -->
+		<body>
+  	<!-- body content here -->
+	<div class="row">
+	  <div class="small-12 medium-12 large-12 columns">
+	    <p> </p>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="small-9 medium-9 large-9 columns">
+	    <h4 class="title">File - Using the FileInput node with Whole File record detection <action><button class="small radius button" tabindex="0" id="stepsViewDetails" onclick="viewDetails()"> View Details</button> </action></h4>
+	  </div>
+	  <div class="small-3 medium-3 large-3 columns">
+		<a href="javascript:;" onclick="openExternalBrowser('https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm')" class="small right helplink">IBM Knowledge Center</a> 
+	  </div>
+	</div> 
+	<hr>
+	<div class="row">
+		<div class="small-10 medium-10 large-10 columns">
+		<h5> Learn how to use the FileInput node to parse the whole content of a file. </h5>
+		</div>
+		<div class="small-2 medium-2 large-2 columns">
+			<button class="small radius button right" tabindex="0" id="backToGallery" onclick="backToGallery()"> Back To Gallery
+			</button>
+		</div>
+	</div>
+	<div class="row">          
+		  <div class="small-12 medium-12 large-12 columns">
+			<ul class="tabs vertical"> 
+				<li class="tab-title tab-title-small active">
+				  <a href="javascript:;" onclick="show('panel21')">Create</a> 
+				</li>
+				<li class="tab-title tab-title-small">
+				  <a href="javascript:;" onclick="show('panel31')">Prepare</a> 
+				</li>
+				<li class="tab-title tab-title-small">
+				  <a href="javascript:;" onclick="show('panel41')">Run</a> 
+				</li>
+			</ul>
+			<!-- editing -->
+			<div class="tabs-content panel-thin-blue vertical"> 
+		    	<div class="content active" id="panel21">
+		    		
+		    		<div class="small-10 medium-10 large-10 columns divider">
+					
+				      	<div class="row content-details">
+					      	<h4>Import projects</h4>
+					        
+						    
+								<p> When you click Import, two projects will be created in your workspace: An application named <span class="application">ExampleFileInputWholeFile</span> and a shared library named <span class="application">FileCSV</span>. </p>
+								
+							
+								<p> <span class="application">ExampleFileInputWholeFile</span> provides a single message flow named <span class="resource">FileInputWholeFile</span> which uses a FileInput node to receive an input XML file and propagate the data downstream through the flow. The XML data is transformed into a comma separated output format and written to an output file using a FileOutput node. </p>
+								
+							
+								<p> Once imported using the link on the right, the provided projects are ready to be deployed and tested. To deploy, you can use a provided BAR file, as described on the Prepare tab. </p>
+								
+							
+						</div>
+						
+						<div class="row content-details">
+							<h4>Find out more</h4>
+							<ul>
+							
+								
+								
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm')" title="Knowledge Center link to  Developing integration solutions from scratch">Developing integration solutions from scratch</a> </li>
+									
+							
+							</ul>
+						</div>
+						
+					</div>
+					
+					<div class="small-2 medium-2 large-2 columns">
+					
+					
+					<h4 class="tkaction"><a href="javascript:;" onclick="importArtifacts(); openResource('MainFlow')"> Import <img class="icon-image" src="https://ot4i.github.io/iib-tutorials/images/icons/ibmdesign/back-right-previous_128-orange.png"></a></h4>
+										
+				    </div>
+					
+		    	</div>
+		    	<div class="content" id="panel31">
+					
+					<div class="small-12 medium-12 large-12 columns">
+					
+						<div class="row content-details">
+						  	<h4>Prepare an output directory, create an integration node and deploy the message flow</h4>
+						    
+						    
+								<p> Prepare the scenario by executing the following steps: </p>
+								
+								
+									
+									<ol>
+									
+									
+										<li> The message flow's FileInput node will attempt to read input files from the directory <code><span class="cmdname">C:\temp\FileInput</span></code>. Create this directory if it does not already exist, or edit the FileInput node in the message flow to read from a different directory suitable for your runtime environment.
+										
+										</li>
+									
+										<li> The message flow's FileOutput node will attempt to write output files to the directory <code><span class="cmdname">C:\temp\FileOutput</span></code>. Create this directory if it does not already exist, or edit the FileOutput node in the message flow to write to a different directory suitable for your runtime environment.
+										
+										</li>
+									
+										<li> Next, create an integration node by starting an App Connect Enterprise command console and executing the following commands:<br><code><span class="cmdname">mqsicreatebroker TESTNODE</span></code><br><code><span class="cmdname">mqsistart TESTNODE</span></code><br><code><span class="cmdname">mqsicreateexecutiongroup TESTNODE -e server</span></code>
+										
+										</li>
+									
+										<li> Back in the Toolkit, drag and drop deploy the provided BAR file named <span class="application">FileInputWholeFile.bar</span> which you will find inside the <span class="application">ExampleFileInputWholeFile</span> application.
+										
+										</li>
+									
+									
+									</ol>
+									
+								
+							
+						</div>
+						
+						<div class="row content-details">
+							<h4></h4>
+							<ul>
+							
+							</ul>
+						</div>
+							
+					</div>
+					
+		    	</div>
+		    	<div class="content" id="panel41">
+		    		
+					<div class="small-12 medium-12 large-12 columns">
+					
+				    	<div class="row content-details">
+					      	<h4></h4>
+					        
+						    
+								<p> <h4>Use the Flow Exerciser to test the tutorial scenario </h4></p>
+								
+								
+									
+									<ol>
+									
+									
+										<li> Open <span class="resource">FileInputWholeFile.msgflow</span>.
+										
+										
+											
+											<ul>
+											
+												
+													<li> Click the Flow Exerciser icon <img src="http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png" alt> to start testing the flow (when challenged you do not need to redeploy the flow again).</li>
+												
+													<li> Copy the provided input message from <code>&lt;Integration Toolkit workspace&gt;/ExampleFileInputWholeFile/WholeFileInput.xml</code> to the input directory that you created on your file system. The file will be processed by the message flow and then deleted.</li>
+												
+													<li> In the Flow Exerciser toolbar, click the View Path icon <img src="http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png" alt="View path"> to highlight the message path through the message flow. You can click on any highlighted connection to see the message data that passed through that connection.</li>
+												
+													<li> <span class="resource">WholeFileInput.xml</span> contains this data:<br><code>&lt;Message xmlns=&quot;http://www.ibm.com/ace/dev/FileXML&quot;&gt;<br>&lt;Field1&gt;United Kingdom&lt;/Field1&gt;<br>&lt;Field2&gt;USA&lt;/Field2&gt;<br>&lt;Field3&gt;Germany&lt;/Field3&gt;<br>&lt;Field4&gt;France&lt;/Field4&gt;<br>&lt;Field5&gt;India&lt;/Field5&gt;<br>&lt;/Message&gt;</code></li>
+												
+													<li> The flow should create an output file named <span class="resource">C:\temp\FileOutput\WholeFileOutput.txt</span> which contains this data:<br><code>United Kingdom,USA,Germany,France,India</code></li>
+												
+											
+											</ul>
+											
+										
+										</li>
+									
+									
+									</ol>
+									
+								
+							
+								<p> This tutorial has shown the FileInput node parsing the whole content of a file. </p>
+								
+							
+						</div>
+						
+						<div class="row content-details"> 	
+							<h4>Find out more</h4>
+							<ul>
+							
+								
+								
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ac55150_.htm')" title="Knowledge Center link to  FileInput node">FileInput node</a> </li>
+									
+							
+								
+								
+								<li> <a href="javascript:;" onclick="openExternalBrowser('https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/rt26110_.htm')" title="Knowledge Center link to  Testing your message flow by using the Flow exerciser">Testing your message flow by using the Flow exerciser</a> </li>
+									
+							
+							</ul>
+						</div>
+							
+					</div>
+					
+				</div>	
+			</div> <!-- tab-content -->
+		</div> <!-- columns -->
+	  </div> <!-- row --></body>
+		<script src="https://ot4i.github.io/iib-tutorials/js/vendor/jquery.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/vendor/foundation.min.js"></script>
+		<script src="https://ot4i.github.io/iib-tutorials/js/main.js"></script>
+	</body>
+<!-- body::End -->
+
+</html>
